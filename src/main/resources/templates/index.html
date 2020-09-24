@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Topic 4</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+
+<body>
+    <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <img width="120px" src="/images/css-logo.svg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <div>
+            <a th:href="@{/export}" class="btn btn-secondary" role="button" aria-pressed="true">Download PDF</a>
+        </div>
+        <table class="fl-table">
+            <tbody>
+                <tr th:each="row: ${data}">
+                    <td th:each="column: ${row}" th:bgcolor="${column == null ? #fff : column.background}"
+                        th:text='${column == null ? "" : column.value}'></td>
+                </tr>
+            <tbody>
+        </table>
+    </div>
+    <!-- Site footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <h4 style="text-align: center;">Topic-4 Description</h4>
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <p class="text-justify">
+                        The majority of the data that is displayed in an eGECKO module is stored in relational database
+                        structures.
+                        This data can be visualized with the integrated i-net crystal clear report designer.
+                        Moreover a small amount of visualized data is dynamically created.
+                        In this data structures (eGECKO Cube/XSheet/GeckoCellObject) the data is defined via an array of
+                        objects that contain the following information:<br>
+                    </p>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <p class="text-justify"> obj = {
+                        positionX: integer, positionY: integer, value: string
+                        } <br>
+                        The array is defined as follows: arr = [obj1, …, objn] <br>
+                        A System should be designed that gives the user possibility to print those object to a pdf.
+                        Furthermore the user has multiple styling options.</p>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by
+                        <a href="https://www.css.de/">CSS.de</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
